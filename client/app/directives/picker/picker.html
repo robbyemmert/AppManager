@@ -1,0 +1,8 @@
+<div class="col-sm-2 picker">
+    <div class="picker-block">
+        {{name}} {{selection}}
+    </div>
+    <div ng-repeat="option in options" class="picker-block">
+        <input type="radio" name="{{name}}" value="{{option.value}}" ng-model="$parent.selection"> {{option.text}}
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="toolbar" class="row marketing">
+                <ul class="nav nav-tabs">
+                    <li class="{{(step == 'Localizable') ? 'active' : 'inactive'}}"><a ng-click="step = 'Localizable'">Localizables</a></li>
+                    <li class="{{(step == 'Storyboard') ? 'active' : 'inactive'}}"><a ng-click="step = 'Storyboard'">Storyboards</a></li>
+                </ul>
+            </div>
+
+            <div ng-show="step == 'Localizable'" id="localizable-export" class="row marketing">
+                <h3>Localizable</h3>
+                <div class="toolbar" style="padding: 1em;">
+                    <button class="btn btn-primary" ng-click="export(localizables)">Download Export</button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li ng-repeat="language in settings.languages" ng-class="{active: $parent.localizablePreviewLanguage == language}"><a ng-click="$parent.localizablePreviewLanguage = language">{{language.name}}</a>
+                    </li>
+                </ul>
+                <div class="row toolbar">
+                    <label>Folder Name <input type="text" ng-model="localizables[localizablePreviewLanguage].folderName" /></label>
+                </div>
+                <table class="ios-strings-preview">
+                    <tr ng-repeat="string in localizables[localizablePreviewLanguage].stringList">
+                        <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
+                        <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div ng-show="step == 'Storyboard'" id="storyboard-export" class="row marketing">
+                <h3>Storyboard</h3>
+                <form>
+                    <input id="ios-import-file" type="file" onchange="angular.element(this).scope().addFile(this)" />
+                </form>
+                <div class="toolbar" style="padding: 1em;">
+                    <button class="btn btn-default" ng-click="export(storyboards)">Export to File System</button>
+                    <button class="btn btn-default">Clear</button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li ng-repeat="language in getLanguages()"><a ng-click="$parent.storyboardPreviewLanguage = language">{{language}}</a>
+                    </li>
+                </ul>
+                <div class="row toolbar">
+                    <label>Folder Name <input type="text" ng-model="storyboards[storyboardPreviewLanguage].folderName" /></label>
+                </div>
+                <table class="ios-strings-preview">
+                    <tr ng-repeat="string in storyboards[storyboardPreviewLanguage].stringList">
+                        <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
+                        <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

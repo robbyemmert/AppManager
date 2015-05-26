@@ -1,0 +1,44 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 table-control-bar">
+            <div class="btn-group pull-left">
+                <a href="import/csv" class="btn btn-default">Import CSV</a>
+                <button class="btn btn-default" ng-click="prependString()">Add row</button>
+            </div>
+            <div class="btn-group pull-right">
+                <a ui-sref="ios-export-strings({strings: strings})" class="btn btn-default">Export iOS Strings</a>
+                <a href="ios/translate-storyboard" disabled class="btn btn-default">Translate iOS Storyboard</a>
+                <a href="android/export-strings" disabled class="btn btn-default">Export Android Strings</a>
+                <a href="android/translate-xml" disabled class="btn btn-default">Translate Android XML</a>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-bordered table-hover table-condensed">
+                <tr style="font-weight: bold">
+                    <td>Android Key</td>
+                    <td>iOS Key</td>
+                    <td ng-repeat="language in settings.languages">{{language.name}}</td>
+                    <td class="row-options">Options</td>
+                </tr>
+                <tr ng-repeat="string in strings">
+                    <td><editable-string value="string[settings.getKeyByKey('android').field]" editing="editingRow"></editable-string></td>
+                    <td><editable-string value="string[settings.getKeyByKey('ios').field]" editing="editingRow"></editable-string></td>
+                    <td ng-repeat="language in settings.languages">
+                        <editable-string value="string[language.key]" editing="editingRow"></editable-string>
+                    </td>
+                    <td class="row-options">
+                        <span class="btn-group">
+                            <button ng-hide="editingRow" class="btn btn-primary" ng-click="editingRow = true">Edit</button>
+                            <button ng-show="editingRow" class="btn btn-primary" ng-click="saveString(string); editingRow = false">Save</button>
+                            <button ng-show="editingRow" class="btn btn-default" ng-click="editingRow = false">Cancel</button>
+                            <button class="btn btn-danger" ng-click="deleteString(string);">Delete</button>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+
+            <button class="btn btn-default" ng-click="appendString()">Add row</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+
+<div ng-show="isEditing" class="input-group">
+    <input ng-hide="bigEditor" class="form-control editable-string-small" type="text" ng-model="value"/>
+    <textarea ng-show="bigEditor" rows="4" class="form-control editable-string-big" ng-model="value"></textarea>
+    <button type="button" class="btn btn-default" ng-click="bigEditor = !bigEditor">{{editorSizeText(bigEditor)}}</button>
+</div>
+<div ng-hide="isEditing">
+    {{value || default}}
+</div>
