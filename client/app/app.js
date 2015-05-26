@@ -8,7 +8,8 @@ angular.module('appManagerApp', [
     'ui.router',
     'ui.bootstrap',
     'DataManager',
-    'xeditable'
+    'xeditable',
+    'angular.filter'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
