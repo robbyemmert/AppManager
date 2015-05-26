@@ -45,6 +45,9 @@ angular.module('appManagerApp', [
 })
 
 .factory('IOSString', function () {
+    var addslashes = function(str) {
+        return str.replace(/[\\'"]/g, '\\$&').replace(/\u000/g, '\\0');
+    }
     return function (key, value, comment) {
         this.key = key;
         this.value = value;

@@ -11,18 +11,32 @@
 
             <div ng-show="step == 'Localizable'" id="localizable-export" class="row marketing">
                 <h3>Localizable</h3>
-                <div class="toolbar" style="padding: 1em;">
-                    <button class="btn btn-primary" ng-click="export(localizables)">Download Export</button>
+                <div class="toolbar">
+                    <button class="btn btn-primary" ng-click="saveLocalizables(localizables)">Export All</button>
                 </div>
                 <ul class="nav nav-tabs">
                     <li ng-repeat="language in settings.languages" ng-class="{active: $parent.localizablePreviewLanguage == language}"><a ng-click="$parent.localizablePreviewLanguage = language">{{language.name}}</a>
                     </li>
                 </ul>
-                <div class="row toolbar">
-                    <label>Folder Name <input type="text" ng-model="localizables[localizablePreviewLanguage].folderName" /></label>
+                <div class="toolbar col-md-12">
+                    <label class="pull-left">Folder Name </label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="localizables[localizablePreviewLanguage.key].folderName" />
+                    </div>
+
+
+                    <div class="col-md-6 btn-group">
+                        <button class="btn btn-default" ng-click="saveFile(localizables[localizablePreviewLanguage.key].toString(), localizables[localizablePreviewLanguage.key].language.name + '.strings')">Download File</button>
+                    </div>
                 </div>
-                <table class="ios-strings-preview">
-                    <tr ng-repeat="string in localizables[localizablePreviewLanguage].stringList">
+                <div ng-show="showPreview">
+                    <h3>File Preview:</h3>
+                    <pre>
+                        {{localizables[localizablePreviewLanguage.key].toString()}}
+                    </pre>
+                </div>
+                <table class="ios-strings-preview" ng-hide="showPreview">
+                    <tr ng-repeat="string in localizables[localizablePreviewLanguage.key].stringList">
                         <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
                         <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
                     </tr>
