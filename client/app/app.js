@@ -9,7 +9,8 @@ angular.module('appManagerApp', [
     'ui.bootstrap',
     'DataManager',
     'xeditable',
-    'angular.filter'
+    'angular.filter',
+    'angular-growl'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
@@ -17,6 +18,45 @@ angular.module('appManagerApp', [
 
     $locationProvider.html5Mode(true);
     $httpProvider.interceptors.push('authInterceptor');
+})
+
+.run(function($rootScope, EVENTS, growl){
+    $rootScope.$on(EVENTS.stringSaveSucceeded, function(){
+        growl.addSuccessMessage("String saved.");
+    });
+
+    $rootScope.$on(EVENTS.stringSaveFailed, function(){
+        growl.addErrorMessage("String failed to save! Please check your connection and try again.");
+    });
+
+    $rootScope.$on(EVENTS.stringDeleteSucceeded, function(){
+        growl.addSuccessMessage("String deleted.");
+    });
+
+    $rootScope.$on(EVENTS.stringDeleteFailed, function(){
+        growl.addErrorMessage("String failed to delete! Please check your connection and try again.");
+    });
+
+    $rootScope.$on(EVENTS.csvImportSucceeded, function(){
+        growl.addSuccessMessage("CSV successfully imported");
+    });
+
+    $rootScope.$on(EVENTS.csvImportFailed, function(){
+        growl.addErrorMessage("CSV failed to import! Please check your connection and CSV file and try again.");
+    });
+})
+
+.config(['growlProvider', function(growlProvider) {
+    growlProvider.globalTimeToLive(5000);
+}])
+
+.constant('EVENTS', {
+    csvImportSucceeded: "csv-import-success",
+    csvImportFailed: "csv-import-fail",
+    stringSaveSucceeded: "string-save-success",
+    stringSaveFailed: "string-save-fail",
+    stringDeleteSucceeded: "string-delete-success",
+    stringDeleteFailed: "string-delete-fail"
 })
 
 .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

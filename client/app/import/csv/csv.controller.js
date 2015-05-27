@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('appManagerApp')
-.controller('CsvCtrl', function ($scope, $rootScope, Settings) {
+.controller('CsvCtrl', function ($scope, $rootScope, Settings, EVENTS, growl) {
     $scope.init = function(){
         $scope.settings = Settings;
         $scope.map = {};
@@ -64,6 +64,9 @@ angular.module('appManagerApp')
 
     $scope.saveImport = function(jcsv, headers){
         var importCollection = new DataCollection('string');
+        var leftToImport = jcsv.length;
+        var succeededImport = 0;
+        var failedImport = 0;
         for (var i in jcsv) {
             var row = jcsv[i]
             var string = new DataObject('string');
@@ -77,9 +80,25 @@ angular.module('appManagerApp')
                 }
             }
             importCollection.push(string);
-            string.save();
+            string.save(function(data, status){
+                leftToImport--;
+                if (!!data && status >= 200 && status < 300) {
+                    succeededImport++;
+                } else {
+                    failedImport++;
+                }
+
+                if(leftToImport == 0){
+                    if (succeededImport) {
+                        growl.addSuccessMessage(succeededImport + " strings successfully imported.");
+                        $scope.reset();
+                    }
+                    if (failedImport) {
+                        growl.addErrorMessage(failedImport + " strings failed to import properly.");
+                    }
+                }
+            });
         }
-        window.importCollection = importCollection;
     }
 
     $scope.init();
