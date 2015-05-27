@@ -33,7 +33,7 @@ var User = require('../api/user/user.model');
 User.find({}).remove(function() {
     User.create({
         provider: 'local',
-        role: 'translator'
+        role: 'translator',
         name: 'Mr. Translator',
         email: 'translator@odb.org',
         password: 'spreadtheword'
