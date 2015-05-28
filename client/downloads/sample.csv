@@ -1,0 +1,76 @@
+Context,Android String Name,English,Spanish,Portuguese,Thai,Indonesian,Japanese,Chinese (Simplified),Chinese (Traditional)
+Setup,setup,Account Setup,Configuración de cuenta,Configurações da conta,ตั้งค่าบัญชีผู้ใช้,Pengaturan Akun,アカウント設定,建立帐户,建立帳戶
+Setup,login_prompt,Already own the My Utmost for His Highest App? Log in with your username and password here.,¿Ya posees la aplicación En pos de lo supremo? Ingresa aquí con el nombre de usuario y contraseña.,"Você já tem o aplicativo ""Tudo para Ele""? Entre com o seu nome de usuário e senha.",หากคุณใช้ app My Utmost for His Highest อยู่แล้ว คุณสามารถล็อกอินด้วยชื่อบัญชีผู้ใช้และรหัสผ่านได้ที่นี่,Sudah memiliki aplikasi Pengabdianku Bagi Kemuliaan-Nya? Daftar dengan nama dan sandi Anda di sini,すでにMy Utmost for His Highest Appのアカウントをお持ちの場合は、ユーザー名とパスワードでログインしてください。,已经下载《竭诚为主》应用程式？请在此处输入你的帐号和密码。,已經下載《竭誠為主》應用程式？請在此處輸入你的帳號和密碼。
+Setup,register_prompt,Register today! And you will be able to sync your journal entries and bookmarks between all of your mobile devices.,¡Regístrate ya! Podrás sincronizar tus entradas y marcadores entre todos tus dispositivos móviles.,Inscreva-se hoje! Você poderá sincronizar suas postagens e marcadores entre todos os seus dispositivos eletrônicos.,ลงทะเบียนวันนี้! คุณจะสามารถซิงค์บันทึกและบุ๊คมาร์คระหว่างอุปกรณ์สื่อสารต่างๆ ของคุณได้,Daftar sekarang! Anda dapat sinkronkan catatan dan bookmark pada setiap perangkat yang Anda miliki.,今すぐアカウント登録をおすすめします。すべての携帯電話やタブレットで、デボーションノートやブックマークが同期できます。,今天就注册！你可以把你的笔记和书签同步至手机的所有设备。,今天就註冊！你可以把個人筆記和書籤同步至所有流動裝置。
+Setup,,Customize your experience or get started now.,Personaliza tu cuenta o comienza ya.,Personalize sua conta ou comece já.,ปรับแต่งประสบการณ์ของคุณ หรือเริ่มต้นทันที,Pilih pengaturan Anda sendiri atau mulai sekarang.,カスタマイズ または すぐ読む,设定个人化体验或现在开始,設定個人化體驗或現在開始使用。
+Setup,login,Login,Entrar,Entre,ล็อกอิน,Masuk,ログイン,登入,登入
+Setup,register,Register,Registrarse,Cadastre-se,ลงทะเบียน ,Daftar,登録,注册,註冊
+Setup,,Forgot Password?,¿Olvidaste tu contraseña?,Esqueceu a senha?,ลืมรหัสผ่าน,Lupa sandi?,パスワードをお忘れですか?,忘记密码？,忘記密碼？
+Setup,email,Email,E-mail,Email,อีเมล์,E-mail,メールアドレス,电邮,電郵
+Setup,username,Username,Nombre de usuario,Nome de usuário,ชื่อผู้ใช้,Nama Pengguna,ユーザー名,帐号,帳號
+Setup,password,Password,Contraseña,Senha,รหัสผ่าน,Sandi,パスワード,密码,密碼
+Setup,,Success,Correcto,Sucesso,สำเร็จ,Berhasil,成功しました,成功,成功
+Setup,,Error,Error,Erro,ผิดพลาด,Ada kesalahan,失敗しました,错误,錯誤
+Setup,login_success,You are now logged in.,Ahora estás conectado,Agora você está conectado,คุณกำลังอยู่ในสถานะล็อกอิน,Anda sudah berhasil masuk.,ログインに成功しました,你已经登入。,你已經登入。
+Setup,,Set up your preferences,Configurar las preferencias,Configure as suas preferências,ตั้ั้งค่าที่คุณต้องการ,Atur tampilan Anda,表示したい項目をセットアップしてください。,设定个人选项,設定個人選項
+Setup,,Read Today's ODB,Leer el artículo de hoy,Leia o Pão Diário de hoje,อ่านบทความมานาฯ วันนี้,Baca renungan hari ini,今日の「デイリーブレッド」を読む,阅读今日《灵命日粮》,閱讀今天的《靈命日糧》
+General,bookmarks,Bookmarks,Marcadores ,Marcador de páginas,บุ๊คมาร์ค,Bookmark,ブックマーク,书签,書籤
+General,journal,Journal,Diario,Jornal/Diário,บันทึก,Catatan,ジャーナル,笔记,筆記
+General,library,Library,Biblioteca,Biblioteca,คลังข้อมูล,Koleksi,ライブラリー,灵修文库,靈修文庫
+General,,Error,Error,Erro,ผิดพลาด,Ada kesalahan,エラー,错误,錯誤
+General,,OK,OK,OK,โอเค,Setuju,OK,好的,确定
+General,cancel,Cancel,Cancelar,Cancelar,ยกเลิก,Batal,キャンセル,取消,取消
+Library,app_name,Our Daily Bread,Nuestro Pan Diario,Pão Diário,มานาประจำวัน,Santapan Rohani,デイリーブレッド,灵命日粮,靈命日糧
+Library,today,Today,Hoy,Hoje,วันนี้,Hari ini,今日,今日文章,今日文章
+Library,all_issues,All Issues,Todos los artículos,Todos os temas,ทุกหัวข้อ,Seluruh materi,すべて,所有文章,所有文章
+Library,downloaded,Downloaded,Descargado,Baixado,ดาวน์โหลด,Sudah diunduh,ダウンロードできました,已下载,已下載
+Library,,Download Content,Descargar contenido,Conteúdo baixado,ดาวน์โหลดเนื้อหา,Unduh materi,ダウンロード済み,下载内容,下載內容
+Library,,The current issue has not yet been downloaded. Do you want to download it now?,El ítem actual no se ha descargado. ¿Deseas descargarlo ahora?,O item não foi baixado. Deseja baixá-lo agora?,หัวข้อปัจจุบันยังไม่ได้ดาวน์โหลด คุณต้องการดาวน์โหลดเดี่๋ยวนี้หรือไม่,Materi terbaru belum diunduh. Ingin mengunduhnya sekarang?,最新号はダウンロードされていません。いますぐダウンロードしますか。,你还未下载当月的文章。要现在下载吗？,你還未下載當月的文章。要現在下載嗎？
+Library,,Could not download the selected issue.,No se pudo descargar el ítem seleccionado,Não foi possível baixar o item selecionado,ไม่สามารถดาวน์โหลดหัวข้อที่เลือกไว้ได,Materi yang dipilih tidak dapat diunduh.,選択された号はダウンロードできません。,无法下载所选月份的文章,無法下載所選月份的文章
+Library,delete_issue_confirm,Do you want to delete this issue?,¿Deseas borrar este ítem?,Você quer excluir este ítem?,ต้องการลบหัวข้อนี้หรือไม่,Ingin menghapus materi ini?,この号を削除しますか。,你要删除此月份的文章吗？,你要刪除此月份的文章嗎？
+Library,delete,Delete,Borrar,Excluir,ลบ,Hapus,削除,删除,刪除
+Library Settings,settings,Settings,Configuración,Configurações,ต้ั้งค่า,Pengaturan,設定,设定,設定
+Library Settings,,Account,Cuenta,Conta,บัญชีผู้ใช้,Akun,アカウント,帐户,帳戶
+Library Settings,setup,Account Setup,Configuración de cuenta,Configurações da conta,ตั้งค่าบัญชีผู้ใช้,Pengaturan Akun,アカウント設定,建立帐户,建立帳戶
+Library Settings,login,Login,Entrar,Entrar,ล็อกอิน,Masuk,ログイン,登入,登入
+Library Settings,logout,Logout,Salir,Sair,ล็อกเอ๊าท์,Keluar,ログアウト,登出,登出
+Library Settings,logout_confirm,Are you sure you want to log out?,¿Estás seguro de que deseas salir?,Tem certeza que deseja sair?,คุณต้องการล็อกเอ๊าท์ใช่หรือไม่?,Apakah Anda yakin ingin keluar?,ログアウトしますか。,确定登出？,確定登出？
+Library Settings,,Autoload,Carga automática,Carregamento automático,ออโต้โหลด,Ambil secara otomatis?,自動ロード,自动加载,自動加載
+Library Settings,setting_autoload,"Always open ""Today""",Siempre abrir «Hoy»,Sempre abrir no dia de hoje,"เปิดมานาฯ ""วันนี้"" ทุกครั้ง","Selalu buka ""Hari ini""",常に今日のデボーションを表示,默认开启今日文章,自動開啟「今日」文章
+Library Settings,on,On,Encendido,Ligado/on,เปิด,On,オン,开,開
+Library Settings,off,Off,Apagado,Desligado/off,ปิด,Off,オフ,关,關
+Library Settings,setting_reminder,Daily Reminder,Recordatorio diario,Lembrete diário,แจ้งเตือนทุกวัน,Pengingat harian,リマインダー,每日提示,每日提示
+Library Settings,,Language,Idioma,Idioma,ภาษา,Bahasa,言語,语言,語言
+Library Settings,,Reminder,Recordatorio,Lembrete,แจ้งเตือน,Pengingat,リマインダー,提醒,提示
+Library Settings,,Custom Message,Mensaje personalizado,Mensagem personalizada,ข้อความของคุณ,Buat pesan sendiri,カスタムメッセージ,自定义信息,自定訊息
+Library Settings,setting_reminder_text_default,Remember to read Our Daily Bread today.,Recuerda leer hoy Nuestro Pan Diario,Lembre-se de ler o Pão Diário hoje,วันนี้ อย่าลืมอ่านมานาประจำวัน,Anda belum membaca renungan Santapan Rohani hari ini.,"デボーションの時間ですよ。
+",记得阅读今日《灵命日粮》,記得閱讀今天的《靈命日糧》
+Reading,,Table of Contents,Índice,Sumário,สารบัญ,Daftar isi,目次,目录,目錄
+Reading,,Bible in a Year,La Biblia en un año,A Bíblia em um ano,อ่านพระคัมภีร์ภายใน 1 ปี,Bacaan Alkitab setahun,一年で聖書を,全年读经,全年讀經
+Reading,,By (Author's Name),De: (Nombre del autor),Por: (nome do autor),โดย (ชื่อผู้เขียน),Oleh (Nama Penulis),著者：,根据作者名字,作者：
+Reading,,Read: (Scripture Reference),Leer: (Referencia bíblica),Leia: citação bíblica,อ่าน (ข้อพระคัมภีร์),Baca (Ayat Alkitab),聖書のみことば：,读经,讀經
+Reading,comments,Comments,Comentarios,Comentários,ความเห็น,Komentar,コメント,留言,留言
+Reading,journal,Journal,Diario,Diário,บันทึก,Catatan,ジャーナル,笔记,筆記
+Reading,,Share by Email,Compartir por e-mail,Compartilhar via email,แชร์ด้วยอีเมล์,Bagikan melalui e-mail,メールで共有,以电邮分享,以電郵分享
+Reading,,Share on Facebook,Compartir en Facebook,Compartilhar no Facebook,แชร์ที่เฟสบุ๊ค,Bagikan melalui Facebook,Facebookで共有,分享到面簿,分享到Facebook
+Reading,,Share on Twitter,Compartir en Twitter,Compartilhar no Twitter,แชร์ที่ี่ทวิตเตอร์,Bagikan melalui Twitter,Twitterで共有,分享到推特,分享到Twitter
+Reading Settings,text_size_title,Text Size,Tamaño de letra,Tamanho do texto,ขนาดข้อความ,Ukuran Teks,文字サイズ,字体大小,字體大小
+Reading Settings,font_family_title,Font Family,Tipo de letra,Tipo de Fonte,ฟอนท์,Jenis Huruf,フォントタイプ,字型选择,字型選擇
+Reading Settings,,Georgia,Georgia,Georgia,Georgia,Georgia,Georgia,,
+Reading Settings,,Helvetica,Helvética,Helvetica,Helvetica,Helvetica,Helvetica,,
+Reading Settings,,Palatino,Palatino,Palatino,Palatino,Palatino,Palatino,,
+Reading Settings,,Times,Times,Times New Roman,Times,Times,Times,,
+Reading Settings,,Verdana,Verdana,Verdana,Verdana,Verdana,Verdana,,
+Reading Settings,color_scheme_title,Color Scheme,Esquema de colores,Esquema de cores,สี,Bagan warna,配色,配色方案,色彩配置
+Reading Settings,color_scheme_title_light,Light,Claro,Claro,สว่าง,Cerah,明るい,亮,亮
+Reading Settings,color_scheme_title_dark,Dark,Oscuro,Escuro,มืด,Gelap,暗い,暗,暗
+Reading Settings,color_scheme_title_sepia,Sepia,Sepia,Sépia,น้ำตาลดำ (ซีเปีย),Sepia,セピア,棕褐色,棕褐色
+Reading Settings,,Line Spacing,Espacio entre líneas,Espaço entrelinhas,ช่องว่างระหว่างบรรทัด,Spasi,行間,行距,行距
+Reading Settings,page_margin_title,Page Margin,Margen de página,Margem da página,ระยะขอบหน้าเพจ,Batas halaman,ページ余白,页边空白,頁面邊界
+Journal,notes,Notes,Notas,Anotações,บันทึก,Catatan,ノート,备注,備註
+Journal,title,Title,Título,Título,ชื่อเรื่อง,Judul,タイトル,主题,主題
+Journal,cancel_confirm,You have unsaved changes.,Tienes cambios sin guardar,Você tem alterações não salvas,คุณยังไม่ได้บันทึกการเปลี่ยนแปลง,Anda belum menyimpan perubahan.,保存していないデータがあります,你的更改尚未保存,尚未儲存變更
+Journal,delete,Discard Changes,Cancelar los cambios,Descarte as alterações,ยกเลิกการเปลี่ยนแปลง,Batalkan perubahan,変更を破棄,放弃更改,放棄變更
+Journal,save,Save Changes,Guardar los cambios,Salve as alterações,บันทึกการเปลี่ยนแปลง,Simpan perubahan,変更を保存,保存更改,保存變更
+Audio Player,,Lost Connection,Conexión interrumpida,Conexão interrompida,ขาดการเชื่อมต่อ,Koneksi terputus,接続していません,连线已中断,連線已中斷
+Audio Player,,"Sorry, the connection has been lost.","Disculpa, la conexión se ha interrumpido.","Desculpe, a conexão foi interrompida.",ขออภัย ขาดการชื่อมต่อ,"Maaf, koneksi terputus",接続が切断されました,抱歉，连线已中断,抱歉，連線已中斷。

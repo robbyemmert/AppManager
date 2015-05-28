@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><resources>
+	<string name="app_name">灵命日粮</string>
+	
+	
+	
+	
+	
+	<string name="library">灵修文库</string>
+	
+	<string name="journal">笔记</string>
+	<string name="bookmarks">书签</string>
+	<string name="comments">留言</string>
+	<string name="settings">设定</string>
+	
+	
+	
+	<string name="today">今日文章</string>
+	
+	<string name="title">主题</string>
+	<string name="notes">备注</string>
+	
+	
+</resources>
