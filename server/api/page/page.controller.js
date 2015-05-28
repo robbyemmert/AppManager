@@ -31,6 +31,7 @@ exports.create = function(req, res) {
 // Updates an existing page in the DB.
 exports.update = function(req, res) {
   if(req.body._id) { delete req.body._id; }
+  console.log("BODY: ", req.body);
   Page.findByIdAndUpdate(req.params.id, req.body, function(err, updatedPage){
       if(err){ return handleError(res, err); }
       return res.json(200, updatedPage);

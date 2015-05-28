@@ -1,0 +1,51 @@
+.document-picker {
+    display: block;
+    background-color: #efefef;
+    height: 175px;
+    width: 90%;
+    padding: 4px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    white-space: nowrap;
+    border: 3px solid #ccc;
+}
+
+.document-picker-new {
+    display: block;
+    background-color: #efefef;
+    height: 175px;
+    width: 10%;
+    padding: 4px;
+    border-top: 3px solid #ccc;
+    border-right: 3px solid #ccc;
+    border-bottom: 3px solid #ccc;
+}
+
+.document-picker-item:hover {
+    box-shadow: 4px 4px 3px #ccc;
+}
+
+.document-picker-item {
+    display: inline-table;
+    width: 100px;
+    height: 130px;
+    float: none;
+    background-color: #fff;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    box-shadow: 1px 1px 3px #ccc;
+    border-radius: 0;
+}
+
+.document-picker-item .document-content {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    white-space: normal;
+}
+
+.document-picker-item.active {
+    border: 3px solid #263BFF;
+    box-shadow: 4px 4px 3px #ccc;
+}

@@ -16,6 +16,7 @@
       <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
       <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
       <link rel="stylesheet" href="bower_components/angular-xeditable/dist/css/xeditable.css" />
+      <link rel="stylesheet" href="bower_components/textAngular/dist/textAngular.css" />
       <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
@@ -29,6 +30,7 @@
       <link rel="stylesheet" href="app/import/csv/csv.css">
       <link rel="stylesheet" href="app/ios/export-strings/export-strings.css">
       <link rel="stylesheet" href="app/main/main.css">
+      <link rel="stylesheet" href="app/pages/pages.css">
       <link rel="stylesheet" href="app/strings/strings.css">
       <link rel="stylesheet" href="components/modal/modal.css">
       <!-- endinjector -->
@@ -76,6 +78,15 @@
       <script src="bower_components/jszip/dist/jszip.js"></script>
       <script src="bower_components/angular-filter/dist/angular-filter.js"></script>
       <script src="bower_components/angular-growl/build/angular-growl.js"></script>
+      <script src="bower_components/rangy/rangy-core.js"></script>
+      <script src="bower_components/rangy/rangy-classapplier.js"></script>
+      <script src="bower_components/rangy/rangy-highlighter.js"></script>
+      <script src="bower_components/rangy/rangy-selectionsaverestore.js"></script>
+      <script src="bower_components/rangy/rangy-serializer.js"></script>
+      <script src="bower_components/rangy/rangy-textrange.js"></script>
+      <script src="bower_components/textAngular/dist/textAngular.js"></script>
+      <script src="bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+      <script src="bower_components/textAngular/dist/textAngularSetup.js"></script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -97,6 +108,8 @@
           <script src="app/ios/export-strings/export-strings.js"></script>
           <script src="app/main/main.controller.js"></script>
           <script src="app/main/main.js"></script>
+          <script src="app/pages/pages.controller.js"></script>
+          <script src="app/pages/pages.js"></script>
           <script src="app/strings/strings.controller.js"></script>
           <script src="app/strings/strings.js"></script>
           <script src="components/Settings/Settings.service.js"></script>

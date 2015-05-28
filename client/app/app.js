@@ -10,7 +10,8 @@ angular.module('appManagerApp', [
     'DataManager',
     'xeditable',
     'angular.filter',
-    'angular-growl'
+    'angular-growl',
+    'textAngular'
 ])
 .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

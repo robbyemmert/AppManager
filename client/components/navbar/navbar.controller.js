@@ -10,6 +10,10 @@ angular.module('appManagerApp')
         {
             'title': 'Strings',
             'link': '/strings'
+        },
+        {
+            'title': 'Pages',
+            'link': '/pages'
         }
     ];
 

@@ -1,0 +1,70 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10 document-picker">
+            <button class="btn document-picker-item" ng-repeat="page in pages" ng-class="{active: $parent.activeDoc == page}" ng-click="$parent.activeDoc = page">
+                <div class="document-content">
+                    {{page.title}}
+                </div>
+            </button>
+        </div>
+        <div class="col-sm-2 document-picker-new">
+            <button class="btn document-picker-item" ng-class="{active: activeDoc == newPage}" ng-click="activeDoc = newPage">
+                <div class="document-content">
+                    <span class="glyphicon glyphicon-plus"></span> New Document
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pull-right">
+                <button class="btn btn-default" ng-click="downloadDocs(pages, folderNames)"><span class="glyphicon glyphicon-download"></span> Download All</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <form class="col-md-12">
+            <div class="form-group">
+                <label for="docTitle">International Page Title</label>
+                <input type="text" name="docTitle" class="form-control" ng-model="activeDoc.title">
+            </div>
+            <div class="form-group">
+                <label for="docFileName">Project File Name</label>
+                <input type="text" name="docFileName" class="form-control" ng-model="activeDoc.file">
+            </div>
+            <div class="form-group">
+                <div class="pull-left">
+                    <button class="btn btn-primary" ng-click="saveDoc(activeDoc)">Save Document</button>
+                    <button class="btn btn-danger" ng-show="activeDoc != newPage" ng-click="deleteDoc(activeDoc)">Delete Document</button>
+                    <button class="btn btn-danger" ng-show="activeDoc == newPage" ng-click="newPage = defaultNewPage(); activeDoc = newPage;">Clear Document</button>
+                </div>
+                <div class="pull-right">
+                    <button class="btn btn-default" ng-click="downloadDoc(activeDoc, folderNames)"><span class="glyphicon glyphicon-download"></span> Download All Translations</button>
+                </div>
+            </div>
+        </form>
+        <div class="col-md-12">
+            <ul class="nav nav-tabs">
+                <li ng-repeat="language in settings.languages" ng-class="{active: $parent.activeLanguage == language}">
+                    <a href="" ng-click="$parent.activeLanguage = language">{{language.name}}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group col-md-4">
+            <label for="folderName">Folder Name</label>
+            <input type="text" name="folderName" ng-model="folderNames[activeLanguage.key]" class="form-control">
+        </div>
+        <form class="col-md-12">
+            <div class="form-group">
+                <label for="transTitle">Page Title</label>
+                <input type="text" name="transTitle" ng-model="activeDoc.translations[activeLanguage.key].title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label for="transContent">Page Content</label>
+                <text-angular ta-toolbar="{{toolbar}}" ng-model="activeDoc.translations[activeLanguage.key].content"></text-angular>
+                <textarea name="transContent" style="display: none;" ng-model="activeDoc.content"></textarea> <!--This is not currently necessary -->
+            </div>
+        </form>
+    </div>
+</div>
