@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="pull-right">
-                <button class="btn btn-default" ng-click="downloadDocs(pages, folderNames)"><span class="glyphicon glyphicon-download"></span> Download All</button>
+                <button class="btn btn-default" ng-click="downloadDocs(pages, folderNames)"><span class="glyphicon glyphicon-download"></span> Download All Pages</button>
             </div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                     <button class="btn btn-danger" ng-show="activeDoc == newPage" ng-click="newPage = defaultNewPage(); activeDoc = newPage;">Clear Document</button>
                 </div>
                 <div class="pull-right">
-                    <button class="btn btn-default" ng-click="downloadDoc(activeDoc, folderNames)"><span class="glyphicon glyphicon-download"></span> Download All Translations</button>
+                    <button class="btn btn-default" ng-click="downloadDoc(activeDoc, folderNames)"><span class="glyphicon glyphicon-download"></span> Download This Page</button>
                 </div>
             </div>
         </form>
