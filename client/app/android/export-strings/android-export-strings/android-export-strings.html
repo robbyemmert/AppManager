@@ -1,0 +1,70 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="toolbar" class="row marketing">
+                <ul class="nav nav-tabs">
+                    <li class="{{(step == 'Generate') ? 'active' : 'inactive'}}"><a ng-click="step = 'Generate'">Generate</a></li>
+                    <li class="{{(step == 'Translate') ? 'active' : 'inactive'}}"><a ng-click="step = 'Translate'">Translate</a></li>
+                </ul>
+            </div>
+
+            <div ng-show="step == 'Generate'" id="localizable-export" class="row marketing">
+                <h3>Generate XML Strings</h3>
+                <div class="toolbar">
+                    <button class="btn btn-primary" ng-click="saveLocalizables(localizables)">Download All</button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li ng-repeat="language in settings.languages" ng-class="{active: $parent.generationPreviewLanguage == language}"><a ng-click="$parent.generationPreviewLanguage = language">{{language.name}}</a>
+                    </li>
+                </ul>
+                <div class="toolbar col-md-12">
+                    <label class="pull-left">Folder Name </label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="localizables[generationPreviewLanguage.key].folderName" />
+                    </div>
+                    <div class="col-md-6 btn-group">
+                        <button class="btn btn-default" ng-click="localizables[generationPreviewLanguage.key].save()">Download File</button>
+                    </div>
+                </div>
+                <div ng-show="showPreview">
+                    <h3>File Preview:</h3>
+                    <pre>
+                        {{ '\n' + localizables[generationPreviewLanguage.key].toString() }}
+                    </pre>
+                </div>
+                <table class="ios-strings-preview" ng-hide="showPreview">
+                    <tr ng-repeat="string in localizables[generationPreviewLanguage.key].stringList">
+                        <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
+                        <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
+                    </tr>
+                </table>
+            </div>
+
+            <div ng-show="step == 'Translate'" id="storyboard-export" class="row marketing">
+                <h3>Storyboard</h3>
+                <form>
+                    <input id="ios-import-file" type="file" onchange="angular.element(this).scope().addFile(this)" />
+                </form>
+                <div class="toolbar" style="padding: 1em;">
+                    <button class="btn btn-default" ng-click="export(storyboards)">Export to File System</button>
+                    <button class="btn btn-default">Clear</button>
+                </div>
+                <ul class="nav nav-tabs">
+                    <li ng-repeat="language in getLanguages()"><a ng-click="$parent.storyboardPreviewLanguage = language">{{language}}</a>
+                    </li>
+                </ul>
+                <div class="row toolbar">
+                    <label>Folder Name <input type="text" ng-model="storyboards[storyboardPreviewLanguage].folderName" /></label>
+                </div>
+                <table class="ios-strings-preview">
+                    <tr ng-repeat="string in storyboards[storyboardPreviewLanguage].stringList">
+                        <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
+                        <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>

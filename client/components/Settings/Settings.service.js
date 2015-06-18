@@ -43,11 +43,13 @@ angular.module('appManagerApp')
         },
         {
             name: "Chinese (Simplified)",
-            key: 'zh-hans'
+            key: 'zh-hans',
+            androidKey: 'zh-rCN'
         },
         {
             name: "Chinese (Traditional)",
-            key: 'zh-hant'
+            key: 'zh-hant',
+            androidKey: 'zh-rTW'
         }
     ];
 

@@ -86,6 +86,52 @@ angular.module('appManagerApp', [
     };
 })
 
+.factory('AndroidString', function(){
+    return function(key, value){
+        this.key = key;
+        this.value = value;
+
+        this.toString = function(){
+            return '<string name="' + this.key + '">' + this.value + '</string>';
+        }
+
+        this.xml = function(){
+            var parser = new DOMParser();
+            return $(parser.parseFromString(this.toString()));
+        }
+    }
+})
+
+.factory('AndroidStringFile', function(){
+    return function(fileName) {
+        this.docHead = '<?xml version="1.0" encoding="utf-8"?>';
+        this.rootElement = 'resources';
+        this.stringList = [];
+        this.fileName = fileName;
+
+        this.add = function(androidString){
+            this.stringList.push(androidString);
+        }
+        this.toString = function(){
+            var output = this.docHead;
+            output += '<' + this.rootElement + '>\n';
+            this.stringList.forEach(function(string, i){
+                output += '\t' + string.toString() + '\n';
+            });
+            output += '</' + this.rootElement + '>';
+
+            return output;
+        }
+        this.save = function(fileName){
+            fileName = fileName || this.fileName;
+            var blob = new Blob([this.toString()], {
+                type: "text/plain;charset=utf-8"
+            });
+            saveAs(blob, fileName);
+        }
+    }
+})
+
 .factory('IOSString', function () {
     var addslashes = function(str) {
         return str.replace(/[\\'"]/g, '\\$&').replace(/\u000/g, '\\0');
@@ -105,7 +151,8 @@ angular.module('appManagerApp', [
             return this.formattedComment() + '"' + addslashes(this.key) + '" = "' + addslashes(this.value) + '";\n';
         };
     }
-}).factory('IOSStringFile', function () {
+})
+.factory('IOSStringFile', function () {
     return function (fileName) {
         this.stringList = [];
         this.fileName = fileName;
@@ -122,6 +169,13 @@ angular.module('appManagerApp', [
                 fileString += string.toString();
             })
             return fileString;
+        }
+        this.save = function(fileName){
+            fileName = fileName || this.fileName;
+            var blob = new Blob([this.toString()], {
+                type: "text/plain;charset=utf-8"
+            });
+            saveAs(blob, fileName);
         }
     }
 })
