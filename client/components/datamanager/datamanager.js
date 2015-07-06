@@ -89,12 +89,15 @@ angular.module('DataManager', [])
         this._id = id;
         this.target = Utils.Url(Config.baseDomain + "/api/" + typeName + "s/");
 
-        this.save = function(cb) {
+        this.save = function(cb, fcb) {
             var promise;
 
             var scope = this;
             if (typeof cb != "function") {
                 cb = function() {};
+            }
+            if (typeof fcb != "function") {
+                fcb = function() {};
             }
 
             if (!scope._id) {
@@ -111,20 +114,25 @@ angular.module('DataManager', [])
                 cb(data, status, headers, config);
             })
 
-            promise.error(function(data, status, headers, config) {
-                console.log("Successfully")
-            })
+            promise.error(fcb);
 
             return promise;
         }
 
-        this.load = function(cb) {
+        this.load = function(cb, fcb) {
+            if (typeof cb != "function") {
+                cb = function() {};
+            }
+            if (typeof fcb != "function") {
+                fcb = function() {};
+            }
             if (!this._id) {
                 console.error("Can't load object with no _id!");
                 return;
             }
             var scope = this;
             var promise = $http.get(scope.target + scope._id);
+
             promise.success(function(data, status, headers, config) {
                 scope.__proto__._id = data._id;
                 scope.__proto__._schema = data.schema;
@@ -132,19 +140,20 @@ angular.module('DataManager', [])
 
                 Utils.resetObject(scope, data);
                 console.log("Successfully loaded " + scope.typeName + " #" + scope._id);
-                if (typeof cb != "function") {
-                    cb = function() {};
-                }
 
                 cb(data, status, headers, config);
             })
 
+            promise.error(fcb);
+
             return promise;
         }
 
-        this.delete = function(cb) {
+        this.delete = function(cb, fcb) {
             if(typeof cb != "function")
                 cb = function(){};
+            if(typeof fcb != "function")
+                fcb = function(){};
 
             var scope = this;
             if (!scope._id) {
@@ -157,6 +166,7 @@ angular.module('DataManager', [])
                 console.log("Successfully deleted " + scope.typeName + " #" + scope._id);
                 cb(data, status, headers, config);
             });
+            promise.error(fcb)
 
             return promise;
         }

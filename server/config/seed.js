@@ -36,7 +36,12 @@ User.find({}).remove(function() {
         role: 'translator',
         name: 'Mr. Translator',
         email: 'translator@odb.org',
-        password: 'spreadtheword'
+        password: 'spreadtheword',
+        languages: [
+            "en",
+            "es",
+            "zh-hans"
+        ]
     },
     {
         provider: 'local',
@@ -50,7 +55,10 @@ User.find({}).remove(function() {
         role: 'admin',
         name: 'Mr. Admin',
         email: 'admin@odb.org',
-        password: 'spreadtheword'
+        password: 'spreadtheword',
+        languages: [
+            "*"
+        ]
     }, function() {
         console.log('finished populating users');
     }

@@ -37,6 +37,19 @@ exports.update = function(req, res) {
     });
 };
 
+exports.updateTranslation = function(req, res){
+    // if(req.body._id) { delete req.body._id; }
+    //
+    var update = {};
+    update[req.params.language] = req.body.translation;
+    console.log("Body: ", req.body);
+    console.log("Update: ", update);
+    String.findByIdAndUpdate(req.params.id, {$set: update}, function(err, updatedString){
+        if(err){ return handleError(res, err); }
+        return res.json(200, updatedString);
+    });
+}
+
 // Deletes a string from the DB.
 exports.destroy = function(req, res) {
     String.findById(req.params.id, function (err, string) {
