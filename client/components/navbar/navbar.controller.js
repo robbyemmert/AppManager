@@ -14,6 +14,10 @@ angular.module('appManagerApp')
         {
             'title': 'Pages',
             'link': '/pages'
+        },
+        {
+            'title': 'Translate',
+            'link': '/translate'
         }
     ];
 

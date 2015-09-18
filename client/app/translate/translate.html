@@ -1,0 +1,22 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div class="container" id="page-translate">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2>Translate</h2>
+        </div>
+    </div>
+    <div class="row" id="languages">
+        <div ng-repeat="string in strings" class="string col-sm-12">
+            <div class="title col-sm-12">{{ string[settings.mainLanguage] }}</div>
+            <div class="hint col-sm-12">{{ string.hint }}</div>
+            <div class="translations col-sm-3 panel" ng-repeat="language in getUserLanguages(user)">
+                <div class="panel-header">
+                    {{language.name}}
+                </div>
+                <div class="panel-body">
+                    {{string[language.key]}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

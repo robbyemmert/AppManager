@@ -50,8 +50,22 @@ angular.module('appManagerApp')
             name: "Chinese (Traditional)",
             key: 'zh-hant',
             androidKey: 'zh-rTW'
+        },
+        {
+            name: "French",
+            key: 'fr'
+        },
+        {
+            name: "Dutch",
+            key: 'nl'
+        },
+        {
+            name: "German",
+            key: 'de'
         }
     ];
+
+    this.mainLanguage = "en";
 
     this.getKeyByName = function(name){
         for (var index in this.keys) {
