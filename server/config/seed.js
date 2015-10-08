@@ -35,8 +35,8 @@ User.find({}).remove(function() {
         provider: 'local',
         role: 'translator',
         name: 'Mr. Translator',
-        email: 'translator@odb.org',
-        password: 'spreadtheword',
+        email: 'translator@test.com',
+        password: 'password',
         languages: [
             "en",
             "es",
@@ -47,15 +47,15 @@ User.find({}).remove(function() {
         provider: 'local',
         role: 'developer',
         name: 'Mr. Developer',
-        email: 'developer@odb.org',
-        password: 'spreadtheword'
+        email: 'developer@test.com',
+        password: 'password'
     },
     {
         provider: 'local',
         role: 'admin',
         name: 'Mr. Admin',
-        email: 'admin@odb.org',
-        password: 'spreadtheword',
+        email: 'admin@test.com',
+        password: 'password',
         languages: [
             "*"
         ]
