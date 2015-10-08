@@ -92,7 +92,7 @@ angular.module('appManagerApp', [
         this.value = value;
 
         this.toString = function(){
-            return '<string name="' + this.key + '">' + this.value + '</string>';
+            return '<string name="' + this.key + '">' + this.value.replace(/'/g, "\\'") + '</string>';
         }
 
         this.xml = function(){
