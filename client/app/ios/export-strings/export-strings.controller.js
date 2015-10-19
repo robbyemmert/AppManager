@@ -14,8 +14,9 @@ angular.module('appManagerApp')
         $scope.step = "Localizable";
         $scope.showPreview = true;
 
-        $scope.localizablePreviewLanguage = Settings.languages[0]
-        $scope.storyboardPreviewLanguage = Settings.languages[0]
+        $scope.localizablePreviewLanguage = Settings.languages[0];
+        $scope.storyboardPreviewLanguage = Settings.languages[0];
+        $scope.storyboardLanguage = Settings.languages[0];
         $scope.iosKey = Settings.getKeyByKey('ios');
 
         $scope.localizables = $scope.initLocalizables(Settings.languages);
@@ -77,6 +78,66 @@ angular.module('appManagerApp')
             localizable.add(iosString);
         })
         return localizable;
+    }
+
+    $scope.initStoryboards = function(languages, rawFile, fileInfo) {
+        var storyboards = {};
+        languages.forEach(function(language, i){
+            storyboards[language.key] = $scope.initStoryboard(language, rawFile, fileInfo);
+        });
+        return storyboards;
+    }
+
+    $scope.initStoryboard = function(language, rawFile, fileInfo) {
+        language = language || Settings.storyboardPreviewLanguage;
+        var translations = $scope.getTranslations($scope.strings, $scope.storyboardLanguage);
+
+        var storyboard = new IOSStringFile(fileInfo.name);
+        storyboard.folderName = language.key + ".lproj";
+
+        var fileLines = rawFile.split(/\n\s*\n/g);
+        fileLines.forEach(function(val, i){
+            var extract = /\/\*(.*)\*\/\s*"(.*)"\s*=\s*"(.*)"/.exec(val);
+            var translation = "";
+            if (!translations[extract[3]]) {
+                console.warn("No " + language.name + " translation for key " + extract[3]);
+            } else {
+                translation = translations[extract[3]][language.key];
+            }
+            var stringObj = new IOSString(extract[2], translation, extract[1]);
+            stringObj.originalValue = extract[3];
+            storyboard.add(stringObj);
+        })
+        return storyboard;
+    }
+
+    $scope.getTranslations = function(stringArray, language){
+        if (!stringArray) return false;
+        var stringsObject = {};
+
+        for (var i = 0; i < $scope.strings.length; i++) {
+            stringsObject[$scope.strings[i][language.key]] = $scope.strings[i];
+        }
+
+        return stringsObject;
+    }
+
+    $scope.onAddFile = function(element){
+        var file = element.files[0];
+        $scope.loadFile(file, function(rawFile){
+            //add file to scope
+            $scope.storyboards = $scope.initStoryboards(Settings.languages, rawFile, file);
+            $scope.$apply();
+        })
+    }
+
+    $scope.loadFile = function(file, cb) {
+        var reader = new FileReader();
+        reader.readAsText(file);
+        reader.onloadend = function(event){
+            var result = event.target.result;
+            cb(result);
+        }
     }
 
     $scope.init($stateParams.strings);
