@@ -44,37 +44,41 @@
             </div>
 
             <div ng-show="step == 'Storyboard'" id="storyboard-export" class="row marketing">
-                <h3>Storyboard</h3>
-                <form>
-                    Storyboard Language:
-                    <select ng-options="language.name for language in settings.languages" ng-model="storyboardLanguage">
+                <div class="col-md-12">
+                    <h3>Storyboard</h3>
+                    <form>
+                        Storyboard Language:
+                        <select ng-options="language.name for language in settings.languages" ng-model="storyboardLanguage">
 
-                    </select>
-                    <input id="ios-import-file" type="file" onchange="angular.element(this).scope().onAddFile(this)" />
-                </form>
-                <div class="toolbar" style="padding: 1em;">
-                    <button class="btn btn-default" ng-click="export(storyboards)">Export to File System</button>
-                    <button class="btn btn-default">Clear</button>
+                        </select>
+                        <input id="ios-import-file" type="file" onchange="angular.element(this).scope().onAddFile(this)" />
+                    </form>
                 </div>
-                <ul class="nav nav-tabs">
-                    <li ng-repeat="language in settings.languages"><a ng-click="$parent.storyboardPreviewLanguage = language">{{language.name}}</a>
-                    </li>
-                </ul>
-                <div class="row toolbar">
-                    <label>Folder Name <input type="text" ng-model="storyboards[storyboardPreviewLanguage.key].folderName" /></label>
+                <div class="col-md-12" ng-show="storyboards">
+                    <div class="toolbar" style="padding: 1em;">
+                        <button class="btn btn-default" ng-click="saveStoryboards(storyboards)">Download Translations</button>
+                        <button class="btn btn-default" ng-click="clearStoryboards()">Clear</button>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li ng-repeat="language in settings.languages" ng-class="{active: $parent.storyboardPreviewLanguage === language}"><a ng-click="$parent.storyboardPreviewLanguage = language">{{language.name}}</a>
+                        </li>
+                    </ul>
+                    <div class="row toolbar">
+                        <label>Folder Name <input type="text" ng-model="storyboards[storyboardPreviewLanguage.key].folderName" /></label>
+                    </div>
+                    <table class="ios-strings-preview">
+                        <tr>
+                            <th>Storyboard Key</th>
+                            <th>Original Text</th>
+                            <th>Translation</th>
+                        </tr>
+                        <tr ng-repeat="string in storyboards[storyboardPreviewLanguage.key].stringList">
+                            <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
+                            <td><input type="text" ng-model="string.originalValue"></td>
+                            <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
+                        </tr>
+                    </table>
                 </div>
-                <table class="ios-strings-preview">
-                    <tr>
-                        <th>Storyboard Key</th>
-                        <th>Original Text</th>
-                        <th>Translation</th>
-                    </tr>
-                    <tr ng-repeat="string in storyboards[storyboardPreviewLanguage.key].stringList">
-                        <td><input class="valid-{{!!string.key}}" type="text" ng-model="string.key"/></td>
-                        <td><input type="text" ng-model="string.originalValue"></td>
-                        <td><input class="valid-{{!!string.value}}" type="text" ng-model="string.value"/></td>
-                    </tr>
-                </table>
             </div>
 
         </div>

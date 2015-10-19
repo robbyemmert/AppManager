@@ -20,7 +20,7 @@ angular.module('appManagerApp')
         $scope.iosKey = Settings.getKeyByKey('ios');
 
         $scope.localizables = $scope.initLocalizables(Settings.languages);
-        $scope.storyboards = {};
+        $scope.storyboards = false;
         window.s = $scope;
     }
 
@@ -45,6 +45,28 @@ angular.module('appManagerApp')
         });
 
         saveAs(zipFile, "iOS Localizables.zip");
+    }
+
+    $scope.saveStoryboards = function(storyboards){
+        var zip = new JSZip();
+        for (var lang in storyboards) {
+            if (storyboards.hasOwnProperty(lang)) {
+                var storyboard = storyboards[lang];
+                storyboard = $scope.stripBlankTranslations(storyboard);
+                
+                var folderName = storyboard.folderName;
+                var fileName = storyboard.fileName;
+
+                var languageFolder = zip.folder(folderName);
+                languageFolder.file(fileName, storyboard.toString());
+            }
+        }
+
+        var zipFile = zip.generate({
+            type: "blob"
+        });
+
+        saveAs(zipFile, "iOS Storyboards.zip");
     }
 
     $scope.saveFile = function(string, fileName){
@@ -111,6 +133,18 @@ angular.module('appManagerApp')
         return storyboard;
     }
 
+    $scope.stripBlankTranslations = function(iosStringFile){
+        var trimmedList = [];
+        for (var i = 0; i < iosStringFile.stringList.length; i++) {
+            var string = iosStringFile.stringList[i];
+            if (string.value) {
+                trimmedList.push(string);
+            }
+        }
+        iosStringFile.stringList = trimmedList;
+        return iosStringFile;
+    }
+
     $scope.getTranslations = function(stringArray, language){
         if (!stringArray) return false;
         var stringsObject = {};
@@ -138,6 +172,10 @@ angular.module('appManagerApp')
             var result = event.target.result;
             cb(result);
         }
+    }
+
+    $scope.clearStoryboards = function(){
+        $scope.storyboards = false;
     }
 
     $scope.init($stateParams.strings);
