@@ -38,6 +38,10 @@ angular.module('appManagerApp', [
         growl.addErrorMessage("String failed to delete! Please check your connection and try again.");
     });
 
+    $rootScope.$on(EVENTS.stringsDeleteSucceeded, function(){
+        growl.addSuccessMessage("Strings deleted.");
+    });
+
     $rootScope.$on(EVENTS.csvImportSucceeded, function(){
         growl.addSuccessMessage("CSV successfully imported");
     });
@@ -57,7 +61,9 @@ angular.module('appManagerApp', [
     stringSaveSucceeded: "string-save-success",
     stringSaveFailed: "string-save-fail",
     stringDeleteSucceeded: "string-delete-success",
-    stringDeleteFailed: "string-delete-fail"
+    stringDeleteFailed: "string-delete-fail",
+    stringsDeleteSucceeded: "strings-delete-success",
+    stringDeleteFailed: "strings-delete-fail"
 })
 
 .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

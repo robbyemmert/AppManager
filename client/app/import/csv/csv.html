@@ -19,33 +19,39 @@
         </div>
 
         <div class="col-md-12" id="step2" ng-show="!!jcsv && !!headers">
-            <h3>Define Columns</h3>
-            <div style="width: 110px;" class="col-sm-1 picker" ng-repeat="header in headers">
-                <div class="picker-block picker-head">
-                    {{header.name}}
-                </div>
-                <div class="picker-block" ng-click="header.language = '';">
-                    <input type="radio" name="{{header.name}}_language" value="" ng-model="header.language"> None
-                </div>
-                <div class="picker-block" ng-repeat="language in settings.languages" ng-click="header.language = language.key">
-                    <input type="radio" name="{{header.name}}_language" value="{{language.key}}" ng-model="header.language"> {{language.name}}
-                </div>
-            </div>
-            <h3>Define Keys</h3>
-            <div style="width: 110px;" class="col-sm-1 picker" ng-repeat="header in headers">
-                <div class="picker-block picker-head">
-                    {{header.name}}
-                </div>
-                <div class="picker-block" ng-click="header.key = '';">
-                    <input type="radio" name="{{header.name}}_key" value="" ng-model="header.key"> None
-                </div>
-                <div class="picker-block" ng-repeat="key in settings.keys" ng-click="header.key = key.key;">
-                    <input type="radio" name="{{header.name}}_key" value="{{key.key}}" ng-model="header.key"> {{key.name}}
+            <div class="col-md-12">
+                <h3>Define Columns</h3>
+                <div style="width: 110px;" class="col-sm-1 picker" ng-repeat="header in headers">
+                    <div class="picker-block picker-head">
+                        {{header.name}}
+                    </div>
+                    <div class="picker-block" ng-click="header.language = '';">
+                        <input type="radio" name="{{header.name}}_language" value="" ng-model="header.language"> None
+                    </div>
+                    <div class="picker-block" ng-repeat="language in settings.languages" ng-click="header.language = language.key">
+                        <input type="radio" name="{{header.name}}_language" value="{{language.key}}" ng-model="header.language"> {{language.name}}
+                    </div>
                 </div>
             </div>
-            <h3>Confirm</h3>
-            <button class="btn btn-lg btn-primary" ng-click="saveImport(jcsv, headers)">Import Now</button>
-            <button class="btn btn-lg btn-danger" ng-click="reset()">Reset</button>
+            <div class="col-md-12">
+                <h3>Define Keys</h3>
+                <div style="width: 110px;" class="col-sm-1 picker" ng-repeat="header in headers">
+                    <div class="picker-block picker-head">
+                        {{header.name}}
+                    </div>
+                    <div class="picker-block" ng-click="header.key = '';">
+                        <input type="radio" name="{{header.name}}_key" value="" ng-model="header.key"> None
+                    </div>
+                    <div class="picker-block" ng-repeat="key in settings.keys" ng-click="header.key = key.key;">
+                        <input type="radio" name="{{header.name}}_key" value="{{key.key}}" ng-model="header.key"> {{key.name}}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <h3>Confirm</h3>
+                <button class="btn btn-lg btn-primary" ng-click="saveImport(jcsv, headers)">Import Now</button>
+                <button class="btn btn-lg btn-danger" ng-click="reset()">Reset</button>
+            </div>
         </div>
         <div class="row marketing" ng-show="ready()">
             <button class="btn btn-success" ng-click="again(headers)">Import another file</button>

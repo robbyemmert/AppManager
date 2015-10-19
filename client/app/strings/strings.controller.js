@@ -55,5 +55,21 @@ angular.module('appManagerApp')
         });
     }
 
+    $scope.deleteAll = function(){
+        if (confirm("Are you sure you want to remove all strings from the system? There is no undo!")) {
+            for (var i = 0; i < $scope.strings.length; i++) {
+                $scope.strings[i].delete();
+            }
+            $scope.strings.query(false, function(){
+                if ($scope.strings.length > 0) {
+                    $rootScope.$emit(EVENTS.stringsDeleteFailed);
+                } else {
+                    $rootScope.$emit(EVENTS.stringsDeleteSucceeded);
+                }
+            })
+
+        }
+    }
+
     $scope.init();
 });
